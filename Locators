@@ -1,0 +1,43 @@
+package pom;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+
+
+public class pomclass {
+	public static void main(String[] args) {
+		findElement
+
+	    WebDriver driver;
+
+// Locators for elements
+final By searchBox = By.id("twotabsearchtextbox");
+final By searchButton = By.xpath("//input[@value='Go']");
+final By signInLink = By.id("nav-link-accountList").click();
+final By driver;
+(signInLink);
+
+	
+// Constructor to initialize the driver and elements (if using PageFactory)
+public AmazonHomePage(WebDriver driver) {
+	this.driver = driver;
+	// PageFactory.initElements(driver, this); // Alternative using @FindBy
+}
+// Methods to interact with elements (Actions)
+public void enterSearchTerm(String item) {
+	driver.findElement(searchBox).sendKeys(item);
+}
+public void clickSearch() {
+	driver.findElement(searchButton).click();
+}
+public void clickSignIn() {
+	driver.findElement(signInLink).click();
+}
+	}
+}
+
+
