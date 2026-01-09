@@ -1,0 +1,67 @@
+package FirstProject;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class FirstProject {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\eclipse-workspace\\FirstProject\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://www.letcode.in");
+
+		driver.manage().window().maximize();
+		driver.get("https://letcode.in/button");
+
+		WebElement getFindLocation = driver.findElement(By.id("ng-state"));
+
+		Point  xypoint=getFindLocation.getLocation();
+		int xValue=xypoint.getX();
+		int yValue=xypoint.getY();
+		System.out.println("X values is :"+ xValue+"Y value is :"+ yValue);
+
+		WebElement colorButton= driver.findElement(By.id("color"));
+		String color= colorButton.getCssValue("Button color is :+color");
+		System.out.println("Button color is:"+color);
+
+		WebElement sizeButton=driver.findElement(By.id("size"));
+		int height= sizeButton.getSize().getHeight();
+		int width=sizeButton.getSize().getWidth();
+		System.out.println("Height is :"+ height+"Width is:"+width);
+
+		WebElement holdbutton =driver.findElement(By.id("ng-state"));
+		holdbutton.click();
+
+
+		WebElement homeButton = driver.findElement(By.id("ng-state"));
+		homeButton.click();
+		
+		WebElement dropDown1= driver.findElement(By.id("fruits"));
+		Select select = new Select(dropDown1);
+		select.selectByIndex(3);
+		select.selectByValue("2");
+		select.selectByVisibleText("APPLE");
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+}
