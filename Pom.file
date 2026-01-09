@@ -1,0 +1,252 @@
+package PomClass;
+import BaseClass.BaseClass;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.By;
+
+
+public class PomClass extends BaseClass { 
+	WebDriver driver;
+	public PomClass(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+		
+		
+	}
+	
+	//login btn
+	
+	@FindBy(xpath = "//a[text()='login']")
+	private WebElement loginBtn;
+	
+	//search box (ID locator)
+	
+	@FindBy(id = "input-search")
+	private WebElement searchBox;
+	
+	//searchBtn (class locator)
+	
+	@FindBy(className = "search-btn")
+	private WebElement searchBtn;
+	
+	//cart icon
+	@FindBy(xpath = "//span[text()='cart']")
+	private WebElement cartIcon;
+	
+	// first product
+	@FindBy(xpath = "(//div[contains(@class,'_1AtvbE')])[1]")
+	private WebElement firstProduct;
+	
+	//add to cart button
+	@FindBy(xpath = "//button[text()='Add to cart']")
+	private WebElement addtoCartBtn;
+	
+	//close login popup
+	
+	@FindBy(xpath = "//button[contains(text(),'x')]")
+	private WebElement closeLoginPopup;
+	
+	
+	//search box
+	@FindBy(name = "q")
+	private WebElement searchbox;
+	
+	//My Account 
+	@FindBy(xpath = "//div[text()='My Account']")
+	private WebElement MyAccount;
+	
+	//orders
+	@FindBy(xpath = "//div[text()='Orders']")
+	private WebElement Orders;
+	
+	//order item 
+	@FindBy(xpath = "//div[contains(@class,'order-item')]")
+	private WebElement orderItem;
+	
+	//view orderId
+	@FindBy(xpath = "//span[contains(text(),'order ID')]")
+	private WebElement orderId;
+	
+	//order status
+	@FindBy(xpath = "//div[contins@class,'status')]")
+	private WebElement orderStatus;
+	
+	//order cancel btn
+	@FindBy(xpath = "//button[text()='cancel order')]")
+	private WebElement orderCancel;
+	
+	//orderReturn
+	@FindBy(xpath = "//button[text().'Return']")
+	private WebElement orderReturn;
+	
+	//payment page payment mode
+	@FindBy(xpath = "//div[text()='credit / Debit card']")
+	private WebElement paymentMode;
+	
+	//paynow btn
+	@FindBy(xpath = "//button[text()='payNow']")
+	private WebElement payNow;
+	
+	//return page
+	@FindBy(id = "reason")
+	private WebElement returnReason;
+	
+	//submit return
+	@FindBy(xpath = "//button[text()='submit']")
+	private WebElement submitReturnBtn;
+	
+	
+	//refund status
+	@FindBy(xpath = "//div[contains(text(),'Refund')]")
+	private WebElement refundStatus;
+	
+	//cancel order
+	@FindBy(xpath = "//button[text()='confirm']")
+	private WebElement confirmcancelOrder;
+	
+	//Notification page
+	@FindBy(xpath = "//div[text()='Notifications']")
+	private WebElement NotificationsBellbtn;
+	
+	//Logout page
+	@FindBy(xpath = "//div[text() = 'Logout'")
+	private WebElement LogouTBtn;
+	
+	
+	
+	
+	
+	
+	
+	
+			
+	
+	
+	
+	
+	
+	
+	// === pages Action method ===
+	
+	public void clickLogin() {
+		click(loginBtn);
+	}
+	
+	public void searchProduct(String product) {
+		type(searchBox, product);
+		click(searchBtn);
+		
+	}
+	public void openCart() {
+		click(cartIcon);
+	}
+	
+	public void selectFirstProduct() {
+		driver.findElement(firstProduct).click();
+	}
+	
+	public void addToCart() {
+		driver.findElement(addtoCartBtn).click();
+		
+	}
+	
+	public void searchproduct(String product) {
+		driver.findElement(searchbox).sendKeys(product + "\n");
+	}
+	public void openOrders() {
+		driver.findElement(MyAccount).click();
+		driver.findElement(Orders).click();
+	}
+	public void closeLoginPopup() {
+		driver.findElement(closeLoginPopup).click();
+	}
+	public void selectOrder() {
+		driver.findElement(orderItem).click();
+	}
+	
+	public String getOrderId() {
+		return driver.findElement(orderId).getText();
+	}
+	
+	public String getOrderStatus() {
+		return driver.findElement(orderStatus).getText();
+	}
+	
+	public void cancelOrder() {
+		driver.findElement(orderCancel).click();
+		
+	}
+	public void returnOrder() {
+		driver.findElement(orderReturn).click();
+		
+	}
+	//payment page
+	public void selectPaymentMethod() {
+		driver.findElement(paymentMode).click();
+		
+	}
+	
+	//payNow
+	public void payNow() {
+		driver.findElement(payNow).click();
+		
+	}
+	
+	//submit return
+	public void submitReturn() {
+		driver.findElement(submitReturnBtn).click();
+		
+	}
+	
+	//refund status
+	public String getRefundStatus() {
+		return driver.findElement(refundStatus).getText();
+	}
+	
+	// confirm cancel order
+	
+	public void confirmCancel() {
+		driver.findElement(confirmcancelOrder).click();
+	}
+	//Notification page
+	
+	public boolean verifyNotification() {
+	return driver.findElement(NotificationsBellbtn).isDisplayed();
+	}
+	
+	//Logout page
+	public void logout() {
+		driver.findElement(LogouTBtn).click();
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
