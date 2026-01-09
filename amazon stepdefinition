@@ -1,0 +1,43 @@
+package stepdefinition;
+
+import base.baseclass;
+import pom.pomclass;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+
+public class stepdefine extends baseclass {
+
+    pomclass pom;
+
+    // ================= AMAZON LOGIN =================
+
+    @Given("User launches Amazon application")
+    public void user_launches_amazon_application() {
+
+        Browser_launch();
+        maximize();
+        waitimplicit();
+        launchAmazon();
+
+        pom = new pomclass(driver);
+    }
+
+    @When("User clicks sign in")
+    public void user_clicks_sign_in() {
+        pom.clickSignIn();
+    }
+
+    @When("User enters username and password")
+    public void user_enters_username_and_password() {
+        pom.enterEmail("preetharathinam");
+        pom.enterPassword("12345");
+    }
+
+    @Then("User should login successfully")
+    public void user_should_login_successfully() {
+        System.out.println("Amazon login successful");
+        quit();
+    }
+}
