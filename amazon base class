@@ -1,0 +1,42 @@
+package base;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.time.Duration;
+
+public class baseclass {
+
+    public static WebDriver driver;
+    //launch
+    public static WebDriver Browser_launch() {
+
+    System.setProperty("webdriver.chrome.driver", "C:\\Users\\kiaq\\eclipse-workspace\\cucumber\\chromedriver.exe");
+    driver = new ChromeDriver();
+    return driver;
+}
+
+//Maximize
+public static void maximize() {
+    driver.manage().window().maximize();
+}
+
+// Implicit Wait 
+public static void waitimplicit() {
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+}
+
+// Launch Amazon URL
+public static void launchAmazon() {
+    driver.get("https://www.amazon.in/");
+}
+
+// Close Browser
+public static void close() {
+    driver.close();
+}
+
+//  Quit Browser
+public static void quit() {
+    driver.quit();
+}
+}
+
