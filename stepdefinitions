@@ -1,0 +1,64 @@
+package step_definitions;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+import PomClass.PomClass;
+import utils.DriverFactory;
+import BaseClass.BaseClass;
+
+
+// call locators using only stored name(no xpath in test)
+
+public class StepDefinitions {
+	
+	WebDriver driver = DriverFactory.getDriver();
+	PomClass pomclass = new PomClass(driver); // pomclass ku inga driver la object create pandrom
+	
+	
+	@When("user searches for the product {String}")
+	public void user_searches_for_product(String product) {
+		pomclass.searchProduct(product);
+	}
+	
+	@When("user clicks on login")
+	public void user_clicks_on_Login() {
+		pomclass.clickLogin();
+	}
+	
+	@When("user selects first product")
+	public void user_selets_first_product() {
+		pomclass.selectFirstProduct();
+	}
+	@And("user adds product to cart")
+	public void  user_adds_to_cart() {
+		pomclass.addToCart();
+	}
+	@When("user closes login popoup")
+	public void user_closes_login_popup() {
+		pomclass.closeLoginPopup();
+	}
+	@When("user searches product {string}") 
+		public void user_searches_product(String product) {
+		pomclass.searchproduct(product);
+		
+	}
+	
+	
+	
+	
+	
+	public class Hooks {
+		@Before
+		public void setUp() {
+			DriverFactory.getDriver();
+			
+		}
+		@After
+		public void tearDown() {
+			DriverFactory.quitDriver();
+		}
+	}
+	
+
+}
