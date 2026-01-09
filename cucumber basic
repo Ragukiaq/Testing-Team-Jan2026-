@@ -1,0 +1,40 @@
+package steps;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+
+public class Loginsteps {
+	WebDriver driver;
+	
+	@Given("user should navigate the application")
+	public void usreshouldNavigate() {
+     driver=new ChromeDriver();
+     driver.get("https://bookcart.azurewebsites.net/");
+     driver.manage().window().maximize();
+     driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+	}
+
+	@Given("user Click On The Login Button")
+	public void usresClickOnTheLoginButton() {
+
+		driver.findElement (By.xpath("//span[@class='mdc-button__label'][normalize-space()='Login'])[1]"));
+	}
+
+	@Given("user Enter The User Name As Gokul")
+	public void userEnterTheUserNameAsGokul () {
+     driver.findElement(By.xpath("(//div[@class='mat-mdc-text-field-wrapper mdc-text-field ng-tns-c508571215-9 mdc-text-field--outlined'])[1"))
+     .sendKeys("Gokul");  
+			
+		
+	}
+	
+
+	@Given("user Enter The Password as Pass@123")
+	public void userEnterThePasswordasPass() {
+driver.findElement(By.xpath(""))
