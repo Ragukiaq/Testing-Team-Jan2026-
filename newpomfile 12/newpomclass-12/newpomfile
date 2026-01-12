@@ -1,0 +1,127 @@
+package pom;
+
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+
+
+public class pomclass {
+	 WebDriver driver;
+
+	    // Constructor
+	    public pomclass(WebDriver driver) {
+	        this.driver = driver;
+	        PageFactory.initElements(driver, this);
+	    }
+	    	    // -------- Sign In --------
+	             @FindBy(xpath = "//*[@id='nav-link-accountList']")
+	             WebElement siginbutton;
+	    	    
+	    	    public WebDriver getDriver() {
+	    	    	 return driver;
+	    	    }
+	    	    public void setDriver( WebDriver getDriver) {
+	    	    	this.driver=driver;
+					
+	    	    }
+	    	    public WebElement getsigin() {
+	    	    	return getsigin();
+	    	    }
+	    	    public WebElement getEmailid() {
+	    	    	return getEmailid();
+	    	    }
+	    	    public void setEmailid(WebElement emailid) {
+	    	    	this.emailid= emailid;
+	    	    }
+	    	    public WebElement getcont() {
+	    	    	return getcont();
+	    	    }
+
+	    	    public WebElement getpassword() {
+	    	    	return getpassword();
+	    	    }
+	    	    public void setpassword(WebElement password) {
+	    	    	this.password=password;
+	    	    }
+	    	    public WebElement getlogin()
+	    	    {
+	    	    	return getlogin();
+	    	    }
+	    	    
+	    	 
+	    	    //emailid
+	    	    @FindBy(xpath = "//*[@id='ap_email']")
+	    	    WebElement emailid;
+	    	    @FindBy(xpath = "//*[@id='continue']")
+	    	    WebElement cont;
+	    	    //password
+	    	    @FindBy(xpath = "//*[@id='ap_password']")
+	    	    WebElement password;
+	    	    //sigin
+	    	    @FindBy(xpath = "//*[@id='signInSubmit']")
+	    	    WebElement login;
+	    	    
+	    	    
+	 //product search
+	    	    @FindBy(xpath = "//*[@id=\"twotabsearchtextbox\"]")
+	             WebElement productsearch;
+	    	    
+	    	    WebElement product;
+	    		public WebElement getproduct() {
+	    			return getproduct();
+	    		}
+	    		public void setproduct(WebDriver driver) {
+	    			this.driver = driver;
+	    		}
+	    		
+	    		public WebElement getproductname() {
+	    	    	return getproductname();
+	    		}
+	    		public void setproductname(WebElement productname) {
+	    			this.productsearch= productname; 
+	    		
+	    		
+}
+	    		
+	    			public WebElement getsubmitproduct() {
+		    	    	return getsubmitproduct();
+	    			
+	    		}
+	    		 public WebElement getfirstproduct() {
+		    	    	return getfirstproduct();
+		    	    }
+	    		 
+	    		 public WebElement getaddproduct() {
+		    	    	return getaddproduct();
+		    	    }   
+	    		 
+	    		 
+	    		 //submit
+	    	        @FindBy(xpath = "//*[@id='nav-search-submit-button']")
+		    	    WebElement submitproduct;
+		    	    
+		    	    //firstproduct
+		    	    @FindBy(xpath = "(//span[@class='a-size-medium a-color-base a-text-normal'])[1]")
+		    	    WebElement firstproduct; 
+		    	    
+		    	    //addcart
+		    	    @FindBy(xpath = "//*[@id='add-to-cart-button']")
+		    	    WebElement addproduct;
+
+					} 
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
+		    	    
