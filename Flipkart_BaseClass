@@ -1,0 +1,19 @@
+package base;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+public class BaseTest {
+	public static WebDriver driver;
+    public void setup() {
+    	System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
+        driver = new ChromeDriver(); // Use WebDriverManager for auto-driver setup
+        driver.manage().window().maximize();
+       
+    }
+ public void tearDown() {
+	 driver.quit();
+ }
+}
