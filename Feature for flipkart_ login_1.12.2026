@@ -1,0 +1,9 @@
+Feature: FlipKart Login Functionality
+Scenario:Login with valid credentials
+Given user launches Flipkart application
+When user enters username "7695936053"
+And user enters password "546346"
+And user clicks on login button 
+Then user should be logged in successfully 
+
+
