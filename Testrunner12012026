@@ -1,0 +1,19 @@
+package runner;
+
+import org.junit.runner.RunWith;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+    features = "src/test/resources/features", 
+    // Path to feature files
+    glue = "stepdefinitions",              
+    // Path to step definitions package
+    plugin = {"pretty", "html:target/cucumber-reports/reports.html"}, // Reporting plugins
+    tags = "@SuccessfulLogin"              
+    // Tag to run specific scenarios
+)   
+public class TestRunner {
+
+}
