@@ -1,0 +1,62 @@
+package stepdefinition;
+
+import base.baseclass;
+
+import pom.pomclass;
+import io.cucumber.java.en.*;
+
+public class stepdefine extends baseclass {
+
+    pomclass pom;
+    pomclass ap= new pomclass(driver);
+
+
+    @Given("User launches Amazon application")
+    public void user_launches_amazon_application() {
+
+        Browser_launch();
+        maximize();
+        ap= new pomclass(driver);
+}
+    @When("User clicks sign in")
+    public void user_clicks_sign_in() {
+        click(ap.getsigin());
+    }
+
+    @And("User enters username and password ")
+    public void user_enters_username_and_password(String emailid, String password) {
+
+        sendkeys(ap.getEmailid(),emailid);
+        click(ap.getcont());
+        sendkeys(ap.getpassword(),password);
+        
+    }
+    
+
+	@Then("User should login successfully")
+    public void user_should_login_successfully() throws Exception {
+    	Thread.sleep(3000);
+    	click(ap.getlogin());
+	
+    }
+
+	@When(" user clicks search button")
+	public void user_clicks_search_button() {
+		click(ap.getproduct());
+		
+	}
+	@And("user searches productname")
+	public void user_searches_productname(String iphone15) {
+		sendkeys(ap.getproductname(),iphone15);	
+		 click(ap.getsubmitproduct());
+		
+		
+	}
+	@When(" user selects first product")
+	public void user_selects_first_button() {
+		click(ap.getfirstproduct());
+	
+}
+	
+	
+}
