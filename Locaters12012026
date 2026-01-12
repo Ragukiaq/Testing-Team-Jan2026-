@@ -1,0 +1,55 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage {
+     WebDriver driver;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+            
+   
+    @FindBy(xpath = "//input[@id='ap_email']")
+    WebElement emailInput;
+    @FindBy(xpath = "//input[@id='continue']")
+    WebElement continueButton;
+     @FindBy(xpath = "//input[@id='ap_password']")
+     WebElement passwordInput;
+     @FindBy(xpath = "//input[@id='signInSubmit']")
+     WebElement signInButton;
+      @FindBy(xpath = "nav-link-accountList-nav-line-1") // Locator for "Hello, User" text
+      WebElement userNameLink;
+
+    public void enterEmail(String email) {
+        emailInput.sendKeys(email);
+    }
+
+    public void clickContinue() {
+        continueButton.click();
+    }
+
+    public void enterPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
+     public void clickSignInButton() {
+        signInButton.click();
+    }
+
+    public String getUserNameText() {
+        return userNameLink.getText();
+    }
+
+	public String getErrorMessageText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+   	
+   }
