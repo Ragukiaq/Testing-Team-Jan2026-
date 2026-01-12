@@ -1,0 +1,58 @@
+package Pom;
+import base.BaseTest;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.By;
+
+public class PomClass { // Loginpage = PomClass
+	
+	WebDriver driver;
+	
+	//constructor
+	
+	public PomClass (WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	//username
+	@FindBy(xpath = "//input[@class='_2IX_2-VJZDxU']")
+	private WebElement userName;
+	
+	//password
+	@FindBy(xpath = "//input[@type='password']")
+	private WebElement pwd;
+	
+	//login button
+	@FindBy(xpath = "//button[@type='submit']")
+	private WebElement loginbtn;
+	
+	//close pop in
+	@FindBy(xpath = "//button[contains(text(), 'x')]")
+	private WebElement closePopin;
+	
+	
+	
+
+	    
+	    public PomClass() {
+	        PageFactory.initElements(driver, this);
+
+	    }
+
+	   public void enterUsename(String user) {
+		   userName.sendKeys(user);
+	   }
+	   public void enterPassword(String pass) {
+		   pwd.sendKeys(pass);
+	   }
+	   public void clickLogin() {
+		   loginbtn.click();
+	   }
+	   public void closeLoginPopup() {
+		   closePopin.click();
+	   }
+	    }
+
+
