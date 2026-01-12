@@ -1,0 +1,48 @@
+package stepdefinitions;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+// Import your Page Object classes here
+import pages.LoginPage; 
+
+public class LoginSteps {
+    WebDriver driver;
+    LoginPage loginPage; // Assuming a LoginPage class exists in 'pages' package
+
+    @Given("the user is on the Amazon login page")
+    public void user_is_on_amazon_login_page() {
+        // Setup WebDriver (ensure ChromeDriver is configured in system PATH)
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.get("www.amazon.com");
+        loginPage = new LoginPage(driver);
+    }
+
+    @When("the user enters a valid email {string} and password {string}")
+    public void user_enters_valid_email_and_password(String email, String password) {
+        loginPage.enterEmail(email);
+        loginPage.clickContinue();
+        loginPage.enterPassword(password);
+    }
+
+    @When("the user clicks the {string} button")
+    public void user_clicks_the_sign_in_button(String buttonName) {
+        loginPage.clickSignInButton();
+    }
+
+    @Then("the user should be successfully logged in and see their profile name {string}")
+    public void user_should_be_logged_in(String profileName) {
+        // Add assertion logic to verify successful login
+        // Example: check for a welcome message or profile link text
+        String actualUserName = loginPage.getUserNameText();
+        assert actualUserName.contains(profileName);
+        driver.quit(); // Close browser after test
+    }
+    
+    
+    
+      
+        }
+    
