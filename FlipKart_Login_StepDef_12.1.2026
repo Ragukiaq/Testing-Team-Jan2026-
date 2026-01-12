@@ -1,0 +1,52 @@
+package Stepdefinitions;
+import base.BaseTest;
+import dev.failsafe.internal.util.Assert;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import Pom.PomClass;
+
+import org.openqa.selenium.By;
+
+public class Stepdefinitions extends BaseTest {
+	PomClass flipkart = new PomClass();
+	
+	//Loginpage login
+	
+	
+	PomClass login;
+	@Given("user Launches Flipkart Application")
+	public void user_launches_flipkart_application() {
+		setup();
+		flipkart = new PomClass(driver);
+	}
+	@When("user enters username {string}")
+	public void user_enters_username(String username) {
+		login.enterUsename(username);
+	}
+	@When("user enters password{string}")
+	public void user_enetrs_password(String password) {
+		login.enterPassword(password);
+	}
+	@And("user clicks on login button")
+	public void user_clicks_on_login_button() {
+		login.clickLogin();
+	}
+	@Then("user should be logged in successfully")
+	public void user_should_be_logged_in_successfully() {
+		if(!driver.getTitle().contains("Flipkart")) {
+			throw new RuntimeException("Login Failed");
+		}
+		//Assert.assertEquals("Flipkart", driver.getTitle());
+		//Assert.assertTrue(driver.getTitle().contains("Flipkart"));
+		tearDown();
+	} 
+
+}
