@@ -1,0 +1,18 @@
+package TestRunners;
+
+import org.junit.runner.RunWith;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+import io.cucumber.junit.CucumberOptions;
+
+public class TestRunners {
+	@RunWith(Cucumber.class)
+	@CucumberOptions(
+	    features = "src/test/resources/features",
+	    glue = "stepdefinitions",
+	    plugin = {"pretty", "html:target/cucumber-reports.html"} // Generates HTML report
+	)
+	public class Runner {}
+
+}
