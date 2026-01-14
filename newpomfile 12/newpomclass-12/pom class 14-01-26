@@ -1,0 +1,121 @@
+package pom;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class pomclass {
+
+    WebDriver driver;
+
+    // Constructor
+    public pomclass(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    //  Sign In 
+
+    @FindBy(id = "nav-link-accountList")
+    private WebElement signinButton;
+
+    @FindBy(id="ap_email_login")
+    private WebElement emailId;
+
+    @FindBy(id="continue")
+    private WebElement continueButton;
+
+    @FindBy(id="cvf-input-code")
+    private WebElement password;
+
+    @FindBy(id="signInSubmit")
+    private WebElement loginButton;
+
+    // Getters
+    public WebElement getSigninButton() {
+        return signinButton;
+    }
+
+    public WebElement getEmailId() {
+        return emailId;
+    }
+
+    public WebElement getContinueButton() {
+        return continueButton;
+    }
+
+    public WebElement getPassword() {
+        return password;
+    }
+
+    public WebElement getLoginButton() {
+        return loginButton;
+    }
+
+    //  Product Search 
+
+    @FindBy(id = "twotabsearchtextbox")
+    private WebElement productSearch;
+
+    @FindBy(id = "nav-search-submit-button")
+    private WebElement submitProduct;
+
+    @FindBy(xpath = "//div[@class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1']//div[@class='a-section aok-relative s-image-fixed-height']")
+    private WebElement firstProduct;
+
+    @FindBy(xpath= "//html[1]/body[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[41]/div[1]/div[1]/span[1]/span[1]/span[1]/input[1]")
+    private WebElement addToCart;
+
+    // Getters
+    public WebElement getProductSearch() {
+        return productSearch;
+    }
+
+    public WebElement getSubmitProduct() {
+        return submitProduct;
+    }
+
+    public WebElement getFirstProduct() {
+        return firstProduct;
+    }
+
+    public WebElement getAddToCart() {
+        return addToCart;
+    }
+ //  Proceed to Pay 
+
+ // Cart button
+ @FindBy(xpath = "//span[@id='a-autoid-6']//input[@type='submit']")
+ private WebElement cartButton;
+
+ // Proceed to Buy
+ @FindBy(xpath = "//input[@name='proceedToRetailCheckout']")
+ private WebElement proceedToBuy;
+
+ // Deliver to this address
+ @FindBy(xpath = "//input[@data-testid='Address_selectShipToThisAddress']")
+ private WebElement deliverAddress;
+
+ // Continue payment
+ @FindBy(xpath = "//input[@name='ppw-widgetEvent:SetPaymentPlanSelectContinueEvent']")
+ private WebElement continuePayment;
+
+
+ //  Getters 
+ public WebElement getCartButton() {
+     return cartButton;
+ }
+
+ public WebElement getProceedToBuy() {
+     return proceedToBuy;
+ }
+
+ public WebElement getDeliverAddress() {
+     return deliverAddress;
+ }
+
+ public WebElement getContinuePayment() {
+     return continuePayment;
+ }
+}
