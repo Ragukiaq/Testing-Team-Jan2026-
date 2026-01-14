@@ -1,0 +1,87 @@
+package stepdefinition;
+
+import base.baseclass;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pom.pomclass;
+
+public class stepdefine extends baseclass {
+
+    pomclass ap;
+    
+
+    @When("User clicks sign in")
+    public void user_clicks_sign_in() {
+        ap = new pomclass(driver);  // Initialize here if not done in @Before hook
+        click(ap.getSigninButton());
+    }
+
+    @And("User enters username {string} and password {string}")
+    public void user_enters_username_and_password(String email, String password) throws InterruptedException {
+
+        sendkeys(ap.getEmailId(), email);
+        click(ap.getContinueButton());
+        Thread.sleep(25000);
+        
+    }
+
+    @Then("User should login successfully")
+    public void user_should_login_successfully() throws InterruptedException {
+        Thread.sleep(3000);
+        click(ap.getLoginButton());
+    }
+
+    // ================= Product Page =================
+
+    @Given("User is on product page")
+    public void user_is_on_product_page() {
+        waitimplicit();
+        click(ap.getProductSearch());
+    }
+
+    @When("User searches product {string}")
+    public void user_searches_product(String productName) {
+        sendkeys(ap.getProductSearch(), productName);
+        click(ap.getSubmitProduct());
+    }
+
+    @And("User selects first product")
+    public void user_selects_first_product() {
+        click(ap.getFirstProduct());
+    }
+
+    @Then("Product added to cart successfully")
+    public void product_added_to_cart_successfully() throws InterruptedException  {
+    	 Thread.sleep(3000);
+    	scrollUp();
+        click(ap.getAddToCart());
+    }
+ 
+
+ //  Proceed to Pay 
+
+    @When("User navigates to cart")
+    public void user_navigates_to_cart() {
+        click(ap.getCartButton());
+    }
+
+    @And("User clicks proceed to buy")
+    public void user_clicks_proceed_to_buy() {
+        click(ap.getProceedToBuy());
+    }
+
+    @And("User selects delivery address")
+    public void user_selects_delivery_address() throws InterruptedException {
+        Thread.sleep(3000);
+        click(ap.getDeliverAddress());
+    }
+
+    @Then("User proceeds to payment page")
+    public void user_proceeds_to_payment_page() throws InterruptedException {
+        Thread.sleep(3000);
+        click(ap.getContinuePayment());
+    }
+
+}
