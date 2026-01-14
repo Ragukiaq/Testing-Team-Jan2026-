@@ -1,0 +1,80 @@
+package selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FrameExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\eclipse-workspace\\FirstProject\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://letcode.in/frame");
+		driver.manage().window().maximize();
+		
+		driver.switchTo().frame(0);
+WebElement button1=driver.findElement(By.name("fname"));
+button1.click();
+
+	}
+
+}
+
+
+package selenium;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class SelectableExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\eclipse-workspace\\FirstProject\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://letcode.in/selectable");
+		driver.manage().window().maximize();
+		List<WebElement> selectable= driver.findElements(By.xpath("//*[@id=\'container\']/div/div[1]"));
+		int listSize=selectable.size();
+		System.out.println(listSize);
+		 
+
+	}
+
+}
+package selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class DraganddropExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\eclipse-workspace\\FirstProject\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://letcode.in/droppable");
+		driver.manage().window().maximize();
+		WebElement From = driver.findElement(By.id("draggable"));
+	    WebElement To = driver.findElement(By.id("droppable"));
+	    
+	    Actions actions=new Actions(driver);
+	    actions.clickAndHold(From).moveToElement(To).release(To).build().perform();
+	    
+	    
+
+	}
+	
+
+}
+
